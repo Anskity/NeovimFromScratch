@@ -3,7 +3,7 @@ vim.keymap.set("n", "<C-x>", function()
 
   if started_terminal then
       local fixed_keys = vim.api.nvim_replace_termcodes("a<ESC><BS>", true, false, true)
-      vim.api.nvim_feedkeys(fixed_keys, mode, false)
+      vim.api.nvim_feedkeys(fixed_keys, "n", false)
   end
   started_terminal = true
 end)
