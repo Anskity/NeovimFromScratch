@@ -1,2 +1,2 @@
-require("main/options");
+require("main/options")
 

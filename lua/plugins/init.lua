@@ -8,6 +8,7 @@ local plugins = {
     require("plugins/toggleterm"),
     require("plugins/rose-pine"),
     require("plugins/harpoon"),
+    require("plugins/undotree"),
 }
 
 return plugins
