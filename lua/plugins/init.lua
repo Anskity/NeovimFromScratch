@@ -6,6 +6,8 @@ local plugins = {
 	require("plugins/treesitter"),
     require("plugins/onedark"),
     require("plugins/toggleterm"),
+    require("plugins/rose-pine"),
+    require("plugins/harpoon"),
 }
 
 return plugins

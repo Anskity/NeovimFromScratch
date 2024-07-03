@@ -1,1 +1,6 @@
-return {'navarasu/onedark.nvim'}
+return {
+    'navarasu/onedark.nvim',
+    opts = {
+        transparent = true,
+    }
+}
