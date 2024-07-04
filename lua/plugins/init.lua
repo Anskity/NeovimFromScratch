@@ -14,6 +14,9 @@ local plugins = {
     require("plugins/nwm"),
     require("plugins/debug"),
     require("plugins/rust-tools"),
+    require("plugins/autoclose"),
+    require("plugins.flash"),
+    require("plugins.vim-move"),
 }
 
 return plugins
