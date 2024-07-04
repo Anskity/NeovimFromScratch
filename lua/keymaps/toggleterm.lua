@@ -1,4 +1,7 @@
+local started_terminal = false;
+
 vim.keymap.set("n", "<C-x>", function()
+
   vim.cmd("ToggleTerm")
 
   if started_terminal then
@@ -11,3 +14,5 @@ vim.keymap.set("t", "<C-x>", function()
   vim.cmd("stopinsert")
   vim.cmd("ToggleTerm")
 end)
+
+vim.keymap.set("t", "<C-Space>", vim.cmd.stopinsert)

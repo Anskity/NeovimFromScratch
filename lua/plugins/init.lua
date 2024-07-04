@@ -9,7 +9,11 @@ local plugins = {
     require("plugins/rose-pine"),
     require("plugins/harpoon"),
     require("plugins/undotree"),
-    require("plugins/lsp-zero"),
+    require("plugins/lsp-plugins"),
+    require("plugins/mini-nvim"),
+    require("plugins/nwm"),
+    require("plugins/debug"),
+    require("plugins/rust-tools"),
 }
 
 return plugins
