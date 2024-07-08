@@ -1,6 +1,6 @@
 local started_terminal = false;
 
-vim.keymap.set("n", "<C-x>", function()
+vim.keymap.set("n", "<C-t>", function()
 
   vim.cmd("ToggleTerm")
 
@@ -10,7 +10,7 @@ vim.keymap.set("n", "<C-x>", function()
   end
   started_terminal = true
 end)
-vim.keymap.set("t", "<C-x>", function()
+vim.keymap.set("t", "<C-t>", function()
   vim.cmd("stopinsert")
   vim.cmd("ToggleTerm")
 end)

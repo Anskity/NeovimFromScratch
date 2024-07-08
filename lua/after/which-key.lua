@@ -22,11 +22,23 @@ local mappings = {
     ["u"] = {name = "Undo Tree"},
     s = {
         name = "String",
-        q = "Delete word",
-        Q = "Delete whole word",
+        q = "Transform word into string",
+        Q = "Transform whole word into string",
+    },
+    b = {
+        name = "Buffer",
+        p = "Goto previous buffer",
+    },
+    d = {
+        name = "Debugger",
+        s = "Start",
+        d = "Display",
+        n = "Next",
+        b = "Breakpoint",
+        t = "Terminate session",
     },
 }
 
 require("which-key").register(mappings, {prefix="<leader>"})
-require("which-key").register({["<ESC>"] = {"<cmd>nohl<cr>", "Dismiss search"}})
+require("which-key").register({["<C-c>"] = {"<cmd>nohl<cr>", "Dismiss search"}})
 

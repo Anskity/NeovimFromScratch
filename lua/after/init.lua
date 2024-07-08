@@ -1,4 +1,5 @@
-require("after/mini-ai")
+require("after/mini-nvim")
 require("after/rust-tools")
 require("after.autoclose")
 require("after.which-key")
+require("after.notify")

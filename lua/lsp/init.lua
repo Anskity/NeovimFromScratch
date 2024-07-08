@@ -2,9 +2,7 @@ vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
 vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
 vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
 
-vim.api.nvim_create_autocmd('LspAttach', {
-  desc = 'LSP actions',
-  callback = function(event)
+local on_attach = function(event)
     local opts = {buffer = event.buf}
 
     -- these will be buffer-local keybindings
@@ -20,7 +18,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
     vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-  end
+end
+
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions',
+  callback = on_attach
 })
 
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -36,6 +39,9 @@ require('mason-lspconfig').setup({
   ensure_installed = {
       "rust_analyzer",
       "lua_ls",
+      "tailwindcss",
+      "tsserver",
+      "clangd",
   },
   handlers = {
     default_setup,
@@ -80,4 +86,19 @@ require('lspconfig').lua_ls.setup({
     }
   }
 })
+require('lspconfig').tsserver.setup {
+    on_attach = function(client, bufnr)
+        -- format on save
+        if client.server_capabilities.documentFormattingProvider then
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                group = vim.api.nvim_create_augroup("Format", { clear = true }),
+                buffer = bufnr,
+                callback = function() vim.lsp.buf.formatting_seq_sync() end
+            })
+        end
+    end,
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  cmd = { "typescript-language-server", "--stdio" }
+}
 
+require('lspconfig').clangd.setup{}
