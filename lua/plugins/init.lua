@@ -18,6 +18,8 @@ local plugins = {
     require("plugins.flash"),
     require("plugins.nvim-notify"),
     require("plugins.silicon"),
+    require("plugins.prettier"),
+    require("plugins.ts-autotag"),
 }
 
 return plugins

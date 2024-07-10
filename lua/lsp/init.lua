@@ -40,8 +40,9 @@ require('mason-lspconfig').setup({
       "rust_analyzer",
       "lua_ls",
       "tailwindcss",
-      "tsserver",
       "clangd",
+      "tsserver",
+      "html",
   },
   handlers = {
     default_setup,
@@ -68,37 +69,15 @@ cmp.setup({
   },
 })
 
-require('lspconfig').lua_ls.setup({
-  capabilities = lsp_capabilities,
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT'
-      },
-      diagnostics = {
-        globals = {'vim', 'lsp_capabilities'},
-      },
-      workspace = {
-        library = {
-          vim.env.VIMRUNTIME,
-        }
-      }
-    }
-  }
-})
-require('lspconfig').tsserver.setup {
-    on_attach = function(client, bufnr)
-        -- format on save
-        if client.server_capabilities.documentFormattingProvider then
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = vim.api.nvim_create_augroup("Format", { clear = true }),
-                buffer = bufnr,
-                callback = function() vim.lsp.buf.formatting_seq_sync() end
-            })
-        end
-    end,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-  cmd = { "typescript-language-server", "--stdio" }
+require('lspconfig').lua_ls.setup(require("lsp.lua"))
+-- require('lspconfig').clangd.setup{}
+-- require('lspconfig').eslint.setup{}
+require('lspconfig').tsserver.setup{
+    on_attach = on_attach,
+    capabilites = lsp_capabilities,
 }
-
-require('lspconfig').clangd.setup{}
+require('lspconfig').html.setup{
+    on_attach = on_attach,
+    capabilites = lsp_capabilities,
+    settings = require("lsp.tsserver"),
+}

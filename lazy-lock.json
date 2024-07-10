@@ -14,6 +14,7 @@
   "nvim-notify": { "branch": "master", "commit": "d333b6f167900f6d9d42a59005d82919830626bf" },
   "nvim-silicon": { "branch": "main", "commit": "b305ad8a45210f0dc8bbba1494dea6af072c0ed2" },
   "nvim-treesitter": { "branch": "master", "commit": "f2f828c5e995af156106a4aa5647463e49fff66a" },
+  "nvim-ts-autotag": { "branch": "main", "commit": "323a3e16ed603e2e17b26b1c836d1e86c279f726" },
   "nwm": { "branch": "x11", "commit": "fcaef3ec9a595ae5ded78afc97f6181c4f502d49" },
   "onedark.nvim": { "branch": "master", "commit": "8e4b79b0e6495ddf29552178eceba1e147e6cecf" },
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
@@ -23,5 +24,6 @@
   "toggleterm.nvim": { "branch": "main", "commit": "066cccf48a43553a80a210eb3be89a15d789d6e6" },
   "tokyonight.nvim": { "branch": "main", "commit": "b9c0d8c2ca120f072e1beb62163fcab4afffbea6" },
   "undotree": { "branch": "master", "commit": "56c684a805fe948936cda0d1b19505b84ad7e065" },
+  "vim-prettier": { "branch": "master", "commit": "7dbdbb12c50a9f4ba72390cce2846248e4368fd0" },
   "which-key.nvim": { "branch": "main", "commit": "0099511294f16b81c696004fa6a403b0ae61f7a0" }
 }
