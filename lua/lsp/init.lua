@@ -43,6 +43,7 @@ require('mason-lspconfig').setup({
       "clangd",
       "tsserver",
       "html",
+      "gopls",
   },
   handlers = {
     default_setup,
@@ -53,7 +54,10 @@ local cmp = require('cmp')
 
 cmp.setup({
   sources = {
-    {name = 'nvim_lsp'},
+    {name = 'nvim_lsp', keyword_length = 1},
+  },
+  completion = {
+    keyword_length = 1,
   },
   mapping = cmp.mapping.preset.insert({
     -- Enter key confirms completion item
@@ -80,4 +84,8 @@ require('lspconfig').html.setup{
     on_attach = on_attach,
     capabilites = lsp_capabilities,
     settings = require("lsp.tsserver"),
+}
+require('lspconfig').gopls.setup{
+    on_attach = on_attach,
+    capabilites = lsp_capabilities,
 }
