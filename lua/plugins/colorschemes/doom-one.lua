@@ -1,1 +1,3 @@
-return {"NTBBloodbath/doom-one.nvim"}
+return {
+    "NTBBloodbath/doom-one.nvim"
+}

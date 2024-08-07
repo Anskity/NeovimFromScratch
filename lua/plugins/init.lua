@@ -22,6 +22,7 @@ local plugins = {
     require("plugins.ts-autotag"),
     require("plugins.go"),
     require("plugins.todo-comments"),
+    require("plugins.noice"),
 }
 
 return plugins
