@@ -23,6 +23,7 @@ local plugins = {
     require("plugins.go"),
     require("plugins.todo-comments"),
     require("plugins.noice"),
+    require("plugins.tmux"),
 }
 
 return plugins

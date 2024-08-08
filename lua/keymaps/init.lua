@@ -5,4 +5,4 @@ require("keymaps/harpoon")
 require("keymaps/undotree")
 require("keymaps/windows")
 require("keymaps.debugger")
-
+require("keymaps.tmux")
